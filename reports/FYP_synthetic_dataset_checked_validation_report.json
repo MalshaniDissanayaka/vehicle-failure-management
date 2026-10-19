@@ -1,0 +1,336 @@
+{
+  "title": "FYP Synthetic Vehicle Fault Dataset \u2014 Audit and Validation Report",
+  "generated_utc": "2026-10-19T18:16:53.458569+00:00",
+  "seed": 20261019,
+  "source_files": {
+    "engine": "engine_data.csv",
+    "obd": "carOBD_clean.csv",
+    "proposal": "Group 18_FYP Project Proposal .pdf"
+  },
+  "dataset_file": "FYP_synthetic_vehicle_fault_dataset_50000_checked.csv",
+  "rows": 50000,
+  "columns": [
+    "sequence_id",
+    "timestamp_step",
+    "engine_coolant_temperature",
+    "oil_pressure_kpa",
+    "engine_rpm",
+    "vehicle_speed",
+    "throttle_position",
+    "engine_load",
+    "scenario_type",
+    "fault_type",
+    "condition",
+    "fault_active"
+  ],
+  "feature_columns": [
+    "engine_coolant_temperature",
+    "oil_pressure_kpa",
+    "engine_rpm",
+    "vehicle_speed",
+    "throttle_position",
+    "engine_load"
+  ],
+  "sequence_count": 500,
+  "rows_per_sequence": {
+    "min": 100,
+    "max": 100
+  },
+  "scenario_sequence_counts": {
+    "normal": 200,
+    "low_oil_pressure": 150,
+    "overheating": 150
+  },
+  "scenario_row_counts": {
+    "normal": 20000,
+    "low_oil_pressure": 15000,
+    "overheating": 15000
+  },
+  "fault_type_counts": {
+    "normal": 30171,
+    "low_oil_pressure": 9915,
+    "overheating": 9914
+  },
+  "condition_counts": {
+    "normal": 38299,
+    "critical": 6975,
+    "warning": 4726
+  },
+  "condition_percentages": {
+    "normal": 76.6,
+    "critical": 13.95,
+    "warning": 9.45
+  },
+  "missing_values_total": 0,
+  "exact_duplicate_rows": 0,
+  "checks": {
+    "exactly_50000_rows": true,
+    "exactly_12_columns": true,
+    "no_missing_values": true,
+    "no_exact_duplicate_rows": true,
+    "exactly_500_sequences": true,
+    "100_rows_per_sequence": true,
+    "steps_0_to_99_each_sequence": true,
+    "valid_scenario_labels": true,
+    "valid_fault_labels": true,
+    "valid_condition_labels": true,
+    "fault_active_matches_fault_type": true,
+    "scenario_constant_within_sequence": true,
+    "normal_scenario_has_no_fault": true,
+    "fault_type_matches_scenario_after_onset": true,
+    "finite_numeric_features": true,
+    "coolant_range_60_150": true,
+    "oil_pressure_positive": true,
+    "baseline_oil_pressure_within_declared_rpm_envelope": true,
+    "rpm_range_500_2500": true,
+    "speed_range_0_130": true,
+    "throttle_range_0_100": true,
+    "load_range_0_100": true,
+    "overheating_warning_consistency": true,
+    "overheating_critical_consistency": true,
+    "oil_critical_idle_below_59": true,
+    "oil_critical_2500_below_140": true,
+    "oil_warning_idle_band": true,
+    "oil_warning_2500_band": true,
+    "oil_fault_sequences_are_stationary_test_conditions": true,
+    "faults_have_pre_onset_normal_rows": true,
+    "overheating_sequences_show_gradual_temperature_rise": true,
+    "oil_fault_sequences_show_gradual_pressure_drop": true,
+    "six_sensor_features_present": true,
+    "baseline_means_within_0_25_source_sd": true,
+    "oil_test_baseline_above_manual_lower_limit": true,
+    "oil_2500_test_baseline_within_manual_range": true,
+    "saved_csv_50000_rows": true,
+    "saved_csv_no_missing": true,
+    "saved_csv_no_duplicates": true,
+    "saved_csv_sequence_integrity": true,
+    "saved_csv_fault_active_consistency": true
+  },
+  "checks_passed": 41,
+  "checks_total": 41,
+  "all_checks_pass": true,
+  "source_filtering": {
+    "engine_source_rows_original": 19535,
+    "engine_source_rows_used_for_baseline": 19520,
+    "engine_filter": "nonmissing source oil pressure and coolant; source pressure 0.05\u20138.0 bar; coolant 60\u2013120 \u00b0C. Extreme coolant outliers excluded from baseline sampling.",
+    "obd_source_rows_original": 274968,
+    "obd_live_rows_used": 89131,
+    "obd_filter": "operating_mode=live; RPM 500\u20132500; speed 0\u2013130; throttle/load 0\u2013100; nonmissing engine_run_time.",
+    "sequence_caveat": "OBD blocks are source-order blocks sorted by source_file and engine_run_time after filtering. Filtering/repeated runtime means they are simulated sequences, not guaranteed continuous real trips."
+  },
+  "distribution_comparison": {
+    "engine_coolant_temperature": {
+      "generated_normal_scenario": {
+        "n": 20000,
+        "mean": 78.972,
+        "std": 6.087,
+        "q05": 67.75,
+        "median": 78.37,
+        "q95": 88.84,
+        "min": 63.85,
+        "max": 94.13
+      },
+      "filtered_source_reference": {
+        "n": 19520,
+        "mean": 78.423,
+        "std": 6.149,
+        "q05": 68.406,
+        "median": 78.347,
+        "q95": 88.609,
+        "min": 61.673,
+        "max": 118.372
+      }
+    },
+    "engine_rpm": {
+      "generated_normal_scenario": {
+        "n": 20000,
+        "mean": 1284.461,
+        "std": 431.096,
+        "q05": 695.179,
+        "median": 1295.305,
+        "q95": 1990.422,
+        "min": 500.75,
+        "max": 2500.0
+      },
+      "filtered_source_reference": {
+        "n": 89131,
+        "mean": 1288.199,
+        "std": 430.448,
+        "q05": 696.0,
+        "median": 1315.5,
+        "q95": 1981.25,
+        "min": 500.75,
+        "max": 2500.0
+      }
+    },
+    "vehicle_speed": {
+      "generated_normal_scenario": {
+        "n": 20000,
+        "mean": 27.134,
+        "std": 19.237,
+        "q05": 0.0,
+        "median": 26.83,
+        "q95": 58.741,
+        "min": 0.0,
+        "max": 85.06
+      },
+      "filtered_source_reference": {
+        "n": 89131,
+        "mean": 27.143,
+        "std": 19.297,
+        "q05": 0.0,
+        "median": 28.0,
+        "q95": 58.0,
+        "min": 0.0,
+        "max": 90.0
+      }
+    },
+    "throttle_position": {
+      "generated_normal_scenario": {
+        "n": 20000,
+        "mean": 19.708,
+        "std": 4.098,
+        "q05": 15.92,
+        "median": 19.04,
+        "q95": 25.31,
+        "min": 14.41,
+        "max": 79.56
+      },
+      "filtered_source_reference": {
+        "n": 89131,
+        "mean": 19.613,
+        "std": 3.766,
+        "q05": 16.078,
+        "median": 18.824,
+        "q95": 24.706,
+        "min": 13.333,
+        "max": 78.824
+      }
+    },
+    "engine_load": {
+      "generated_normal_scenario": {
+        "n": 20000,
+        "mean": 36.405,
+        "std": 16.143,
+        "q05": 20.26,
+        "median": 31.5,
+        "q95": 74.862,
+        "min": 15.22,
+        "max": 100.0
+      },
+      "filtered_source_reference": {
+        "n": 89131,
+        "mean": 35.982,
+        "std": 15.609,
+        "q05": 20.392,
+        "median": 30.98,
+        "q95": 71.765,
+        "min": 16.078,
+        "max": 100.0
+      }
+    },
+    "oil_pressure_kpa": {
+      "generated_normal_scenario": {
+        "n": 20000,
+        "mean": 129.804,
+        "std": 36.966,
+        "q05": 76.309,
+        "median": 124.39,
+        "q95": 196.56,
+        "min": 65.0,
+        "max": 245.69
+      },
+      "source_raw_bar_converted_to_kpa_reference": {
+        "n": 19520,
+        "mean": 330.62,
+        "std": 101.82,
+        "q05": 194.606,
+        "median": 316.27,
+        "q95": 505.821,
+        "min": 5.232,
+        "max": 726.557
+      },
+      "interpretation": "Not a direct distribution match: generic engine source values are converted to kPa but mapped to an RPM-conditioned synthetic envelope because raw generic-engine pressures do not match Toyota Prius c manual test-point specifications. Percentile shape is used only as a prior."
+    },
+    "oil_pressure_percentile_shape": {
+      "generated_normal_normalized_position_in_synthetic_envelope": {
+        "n": 20000,
+        "mean": 0.487,
+        "std": 0.299,
+        "q05": 0.036,
+        "median": 0.471,
+        "q95": 0.939,
+        "min": 0.0,
+        "max": 1.0
+      },
+      "source_engine_oil_pressure_empirical_percentile": {
+        "n": 19520,
+        "mean": 0.5,
+        "std": 0.289,
+        "q05": 0.05,
+        "median": 0.5,
+        "q95": 0.95,
+        "min": 0.0,
+        "max": 1.0
+      },
+      "interpretation": "Percentile-shape comparison only. The RPM envelope is an explicit modelling transformation, not a Toyota specification at intermediate RPM."
+    }
+  },
+  "baseline_mean_difference_in_source_sd": {
+    "engine_coolant_temperature": 0.089,
+    "engine_rpm": 0.009,
+    "vehicle_speed": 0.0,
+    "throttle_position": 0.025,
+    "engine_load": 0.027
+  },
+  "fault_logic": {
+    "overheating": "Fault onset is gradual after a sequence-specific onset. condition=warning above 100\u00b0C and critical above 135\u00b0C only within overheating scenario. These are documented modelling assumptions; >135\u00b0C in the manual is diagnostic context, not standalone proof of overheating.",
+    "low_oil_pressure": "Generated only under stationary controlled test points: 750 RPM idle and 2500 RPM. Manual references: >=59 kPa at idle; 140\u2013280 kPa at 2500 RPM. Warning band = up to 15% above the lower spec (research assumption); critical below lower spec. Pressure declines gradually.",
+    "normal_oil_pressure": "Generic engine source pressure percentile ranks (source values documented in bar) are mapped to an RPM-conditioned synthetic kPa envelope; raw values are not treated as Toyota kPa readings. Interpolation/upper bounds at non-manual RPM values are assumptions, not Toyota specifications."
+  },
+  "manual_references": [
+    {
+      "topic": "Toyota Prius c oil pressure inspection",
+      "url": "https://lemon.dogeware.me/Toyota/2016/Prius%20C%20One/Repair%20and%20Diagnosis%20%28Single%20Page%29/Engine%20Mechanical/Lubrication%20System/Engine%20Lubrication%20System%20%28Inspection%29/Lubrication%20System/On-Vehicle%20Inspection%20%5B11%2F2015%20-%20%5D/Procedure/",
+      "reference": "At idle minimum 59 kPa; at 2500 RPM 140\u2013280 kPa, under stated test conditions."
+    },
+    {
+      "topic": "Toyota Prius c coolant temperature diagnostics",
+      "url": "https://lemon.dogeware.me/Toyota/2016/Prius%20C%20One/Repair%20and%20Diagnosis%20%28Single%20Page%29/Engine%20Performance/Testing%20%26%20Diagnosis/SFI%20System%20-%20Diagnostics%20-%20Introduction%20%282%20Of%202%29/SFI%20System/Data%20List%20%2F%20Active%20Test%20%5B06%2F2017%20-%20%5D/",
+      "reference": "Warm engine 75\u2013100\u00b0C; >135\u00b0C can indicate circuit/sensor issue and requires overheating check; not a standalone fault threshold."
+    },
+    {
+      "topic": "Engine source dataset card",
+      "url": "https://huggingface.co/datasets/dhani10/engine-condition-dataset",
+      "reference": "Used to document source unit and feature provenance; source dataset is not Toyota Aqua-specific."
+    }
+  ],
+  "limitations": [
+    "Synthetic dataset; no actual Toyota Aqua fault records used for ground-truth validation.",
+    "Coolant warning (>100\u00b0C), critical (>135\u00b0C), 15% oil warning margin, and RPM interpolation are modelling assumptions; they are not all manufacturer-declared thresholds.",
+    "Toyota Prius c manual is used as a proxy reference for Toyota Aqua; exact model year/engine applicability should be checked.",
+    "Source distributions are statistical priors, not proof of diagnostic validity. Oil pressure generic-source values are not directly matched to Toyota manual kPa range; their rank shape is mapped to a synthetic RPM envelope.",
+    "This validates internal consistency and source similarity, not real-world diagnostic accuracy."
+  ],
+  "recommended_ml_use": {
+    "predictor_features": [
+      "engine_coolant_temperature",
+      "oil_pressure_kpa",
+      "engine_rpm",
+      "vehicle_speed",
+      "throttle_position",
+      "engine_load"
+    ],
+    "targets": [
+      "fault_type",
+      "condition"
+    ],
+    "do_not_use_as_predictors": [
+      "sequence_id",
+      "timestamp_step",
+      "scenario_type",
+      "fault_active"
+    ],
+    "split": "Train/test split by sequence_id to prevent records from the same simulated sequence leaking across splits."
+  }
+}

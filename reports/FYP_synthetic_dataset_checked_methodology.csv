@@ -1,0 +1,16 @@
+item,description
+Purpose,"50,000-row synthetic research dataset for the FYP; target fault categories are engine overheating and low engine oil pressure."
+Features,"Six features: coolant temperature (°C), oil pressure (kPa), engine RPM, vehicle speed, throttle position (%), engine load (%)."
+Engine source,"engine_data.csv; generic Engine Health data. Source oil pressure documented in bar; conversion to kPa is ×100, but converted generic readings are not assumed to be Toyota pressure measurements."
+OBD source,carOBD_clean.csv; live-mode records filtered to plausible RPM/speed/throttle/load. Source-order blocks provide driving-feature patterns; not asserted as verified continuous trips.
+Dataset structure,"50,000 rows in 500 sequences × 100 steps; 200 normal, 150 overheating, 150 low-oil-pressure sequences."
+Coolant baseline,"Sampled from source coolant distribution (60–120°C after filtering), with small autocorrelated sensor noise."
+Oil pressure baseline,Generic source oil-pressure percentile ranks (source values documented in bar) are mapped to an RPM-conditioned synthetic kPa envelope. Raw source values are not treated as Toyota kPa readings; intermediate-RPM interpolation and bounds are modelling assumptions.
+Toyota oil pressure reference,Prius c manual: at idle at least 59 kPa; at 2500 RPM 140–280 kPa. These are applied only in stationary controlled test-point sequences.
+Low oil fault injection,Stationary test at 750 RPM or 2500 RPM; pressure declines gradually after onset. Critical below the corresponding lower manual limit. Warning band is 15% above the lower limit; 15% is a research assumption.
+Coolant references,Warm-engine reference 75–100°C. >135°C is a diagnostic context that may indicate sensor/circuit issue and requires overheating check; it is not standalone proof of overheating.
+Coolant labels,"Warning >100°C and critical >135°C within injected overheating sequences are modelling rules, not Toyota official warning/critical thresholds."
+Rounding and labels,Features are rounded before severity labels are assigned so saved values agree with labels.
+Leakage prevention,"Do not use sequence_id, timestamp_step, scenario_type or fault_active as predictor features. Split train/test by sequence_id."
+Validation,"Structural checks, source-distribution comparison for directly comparable features, RPM/test-condition checks, gradual-onset checks, and saved-CSV re-read checks are recorded in JSON report."
+Limitations,Synthetic only; not validated on real Toyota Aqua fault logs. Source similarity and internal consistency do not prove real-world diagnostic accuracy.

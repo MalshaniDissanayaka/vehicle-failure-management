@@ -1,0 +1,13 @@
+column,meaning
+sequence_id,Integer identifier for one independent simulated sequence; group by this field for train/test splitting. Not a predictor.
+timestamp_step,Simulated step index 0–99 within each sequence; no real timestamp. Not a predictor.
+engine_coolant_temperature,Coolant temperature in degrees Celsius (°C).
+oil_pressure_kpa,Synthetic oil pressure in kilopascals (kPa). Normal values are mapped to an RPM-dependent assumed envelope; fault sequences use Toyota Prius c manual reference test points.
+engine_rpm,Engine speed in revolutions per minute (RPM).
+vehicle_speed,"Vehicle speed in source dataset units, interpreted as km/h for the OBD-II source."
+throttle_position,Throttle position percentage (%).
+engine_load,Calculated engine load percentage (%).
+scenario_type,"Sequence-level simulated scenario: normal, overheating, or low_oil_pressure. Not a predictor; can leak labels."
+fault_type,"Row-level target: normal before fault onset, then overheating or low_oil_pressure after onset."
+condition,"Severity target: normal, warning, or critical. Thresholds and warning margins are documented in methodology."
+fault_active,Binary onset/state indicator derived from fault_type; not a predictor because it directly leaks the target.
