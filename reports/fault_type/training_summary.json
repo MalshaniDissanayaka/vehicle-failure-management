@@ -1,0 +1,92 @@
+{
+  "target": "fault_type",
+  "features": [
+    "engine_coolant_temperature",
+    "oil_pressure_kpa",
+    "engine_rpm",
+    "vehicle_speed",
+    "throttle_position",
+    "engine_load"
+  ],
+  "classes": [
+    "low_oil_pressure",
+    "normal",
+    "overheating"
+  ],
+  "split": {
+    "train_rows": 40000,
+    "test_rows": 10000,
+    "train_sequences": 400,
+    "test_sequences": 100,
+    "sequence_overlap": 0,
+    "test_size": 0.2,
+    "random_state": 42
+  },
+  "metrics": [
+    {
+      "target": "fault_type",
+      "model": "random_forest",
+      "accuracy": 0.8835,
+      "balanced_accuracy": 0.8494329940470978,
+      "macro_precision": 0.8784990845884493,
+      "macro_recall": 0.8494329940470978,
+      "macro_f1": 0.8607543225530753,
+      "macro_roc_auc_ovr": 0.9517240714192047,
+      "train_rows": 40000,
+      "test_rows": 10000,
+      "train_sequences": 400,
+      "test_sequences": 100,
+      "sequence_overlap": 0,
+      "features": [
+        "engine_coolant_temperature",
+        "oil_pressure_kpa",
+        "engine_rpm",
+        "vehicle_speed",
+        "throttle_position",
+        "engine_load"
+      ],
+      "classes": [
+        "low_oil_pressure",
+        "normal",
+        "overheating"
+      ],
+      "data_type": "synthetic",
+      "interpretation_warning": "Synthetic-data evaluation only; not evidence of real-world diagnostic accuracy."
+    },
+    {
+      "target": "fault_type",
+      "model": "xgboost",
+      "accuracy": 0.8942,
+      "balanced_accuracy": 0.8453507143435829,
+      "macro_precision": 0.9089630954984718,
+      "macro_recall": 0.8453507143435829,
+      "macro_f1": 0.8691799504386575,
+      "macro_roc_auc_ovr": 0.9552705596285745,
+      "train_rows": 40000,
+      "test_rows": 10000,
+      "train_sequences": 400,
+      "test_sequences": 100,
+      "sequence_overlap": 0,
+      "features": [
+        "engine_coolant_temperature",
+        "oil_pressure_kpa",
+        "engine_rpm",
+        "vehicle_speed",
+        "throttle_position",
+        "engine_load"
+      ],
+      "classes": [
+        "low_oil_pressure",
+        "normal",
+        "overheating"
+      ],
+      "data_type": "synthetic",
+      "interpretation_warning": "Synthetic-data evaluation only; not evidence of real-world diagnostic accuracy."
+    }
+  ],
+  "limitations": [
+    "Dataset is synthetic.",
+    "Labels follow documented simulation rules.",
+    "Results do not establish real-world Toyota Aqua diagnostic accuracy."
+  ]
+}

@@ -1,0 +1,4 @@
+engine_coolant_temperature,oil_pressure_kpa,engine_rpm,vehicle_speed,throttle_position,engine_load
+74.09,187.47,1707.75,0.0,17.65,19.22
+73.87,183.64,1687.48,0.48,17.69,18.94
+74.01,184.92,1692.32,0.0,17.49,18.2

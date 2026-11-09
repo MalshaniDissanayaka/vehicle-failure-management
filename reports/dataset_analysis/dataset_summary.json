@@ -1,0 +1,111 @@
+{
+  "shape": [
+    50000,
+    12
+  ],
+  "columns": [
+    "sequence_id",
+    "timestamp_step",
+    "engine_coolant_temperature",
+    "oil_pressure_kpa",
+    "engine_rpm",
+    "vehicle_speed",
+    "throttle_position",
+    "engine_load",
+    "scenario_type",
+    "fault_type",
+    "condition",
+    "fault_active"
+  ],
+  "missing_values_by_column": {
+    "sequence_id": 0,
+    "timestamp_step": 0,
+    "engine_coolant_temperature": 0,
+    "oil_pressure_kpa": 0,
+    "engine_rpm": 0,
+    "vehicle_speed": 0,
+    "throttle_position": 0,
+    "engine_load": 0,
+    "scenario_type": 0,
+    "fault_type": 0,
+    "condition": 0,
+    "fault_active": 0
+  },
+  "exact_duplicate_rows": 0,
+  "unique_sequences": 500,
+  "rows_per_sequence_min": 100,
+  "rows_per_sequence_max": 100,
+  "condition_counts": {
+    "normal": 38299,
+    "critical": 6975,
+    "warning": 4726
+  },
+  "fault_type_counts": {
+    "normal": 30171,
+    "low_oil_pressure": 9915,
+    "overheating": 9914
+  },
+  "numeric_describe": {
+    "engine_coolant_temperature": {
+      "count": 50000.0,
+      "mean": 82.0344042,
+      "std": 10.48236943722185,
+      "min": 63.85,
+      "25%": 75.17,
+      "50%": 80.05,
+      "75%": 85.94,
+      "max": 129.71
+    },
+    "oil_pressure_kpa": {
+      "count": 50000.0,
+      "mean": 124.6006358,
+      "std": 45.0481515069469,
+      "min": 32.64,
+      "25%": 92.63,
+      "50%": 119.1,
+      "75%": 155.59,
+      "max": 257.34
+    },
+    "engine_rpm": {
+      "count": 50000.0,
+      "mean": 1378.3392264,
+      "std": 620.9611311173677,
+      "min": 500.0,
+      "25%": 754.8074999999999,
+      "50%": 1280.76,
+      "75%": 1776.18,
+      "max": 2500.0
+    },
+    "vehicle_speed": {
+      "count": 50000.0,
+      "mean": 18.2773884,
+      "std": 19.869701159706175,
+      "min": 0.0,
+      "25%": 0.0,
+      "50%": 12.15,
+      "75%": 33.77,
+      "max": 90.2
+    },
+    "throttle_position": {
+      "count": 50000.0,
+      "mean": 14.2628906,
+      "std": 8.640862514155135,
+      "min": 0.0,
+      "25%": 2.49,
+      "50%": 17.48,
+      "75%": 19.88,
+      "max": 79.56
+    },
+    "engine_load": {
+      "count": 50000.0,
+      "mean": 30.394817599999996,
+      "std": 15.411483106403518,
+      "min": 9.77,
+      "25%": 19.39,
+      "50%": 26.27,
+      "75%": 36.06,
+      "max": 100.0
+    }
+  },
+  "note": "Synthetic research data; descriptive checks do not establish real-world validity."
+}
