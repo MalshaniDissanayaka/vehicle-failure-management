@@ -1,5 +1,19 @@
+﻿# Python environments
 .venv/
+venv/
+
+# Python generated files
 __pycache__/
 *.py[cod]
 .pytest_cache/
 .ipynb_checkpoints/
+
+# Environment variables and secrets
+.env
+
+# Operating system files
+.DS_Store
+Thumbs.db
+
+# Large trained model files
+models/fault_type/random_forest.joblib

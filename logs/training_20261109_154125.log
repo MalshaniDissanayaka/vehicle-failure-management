@@ -1,0 +1,31 @@
+2026-11-09 15:41:25,892 | INFO | Log file: D:\Documents\vehicle-failure-management\logs\training_20261109_154125.log
+2026-11-09 15:41:25,939 | INFO | Dataset shape: (50000, 12)
+2026-11-09 15:41:25,941 | INFO | Unique sequences: 500
+2026-11-09 15:41:25,945 | INFO | Missing values in required columns: 0
+2026-11-09 15:41:25,955 | INFO | Exact duplicate rows: 0
+2026-11-09 15:41:25,956 | INFO | ===== TARGET: condition =====
+2026-11-09 15:41:26,155 | INFO | Train: 40000 rows / 400 sequences; test: 10000 rows / 100 sequences; overlap: 0
+2026-11-09 15:41:26,155 | INFO | Class labels: ['critical', 'normal', 'warning']
+2026-11-09 15:41:26,156 | INFO | Train class counts: {'normal': 30782, 'critical': 5378, 'warning': 3840}
+2026-11-09 15:41:26,160 | INFO | Test class counts: {'normal': 7517, 'critical': 1597, 'warning': 886}
+2026-11-09 15:41:26,160 | INFO | Training random_forest for condition ...
+2026-11-09 15:41:27,905 | INFO | condition random_forest | accuracy 0.9998 | balanced accuracy 0.9997 | macro F1 0.9997
+2026-11-09 15:41:27,905 | INFO | Training xgboost for condition ...
+2026-11-09 15:41:33,145 | INFO | condition xgboost | accuracy 0.9970 | balanced accuracy 0.9920 | macro F1 0.9919
+2026-11-09 15:41:33,152 | INFO | ===== TARGET: fault_type =====
+2026-11-09 15:41:33,340 | INFO | Train: 40000 rows / 400 sequences; test: 10000 rows / 100 sequences; overlap: 0
+2026-11-09 15:41:33,340 | INFO | Class labels: ['low_oil_pressure', 'normal', 'overheating']
+2026-11-09 15:41:33,340 | INFO | Train class counts: {'normal': 24217, 'overheating': 8121, 'low_oil_pressure': 7662}
+2026-11-09 15:41:33,340 | INFO | Test class counts: {'normal': 5954, 'low_oil_pressure': 2253, 'overheating': 1793}
+2026-11-09 15:41:33,340 | INFO | Training random_forest for fault_type ...
+2026-11-09 15:41:35,465 | INFO | fault_type random_forest | accuracy 0.8835 | balanced accuracy 0.8494 | macro F1 0.8608
+2026-11-09 15:41:35,465 | INFO | Training xgboost for fault_type ...
+2026-11-09 15:41:36,471 | INFO | fault_type xgboost | accuracy 0.8942 | balanced accuracy 0.8454 | macro F1 0.8692
+2026-11-09 15:41:36,496 | INFO | All experiments completed. Summary:
+2026-11-09 15:41:36,498 | INFO | 
+    target         model  accuracy  balanced_accuracy  macro_f1
+ condition random_forest    0.9998           0.999747  0.999663
+ condition       xgboost    0.9970           0.992045  0.991881
+fault_type random_forest    0.8835           0.849433  0.860754
+fault_type       xgboost    0.8942           0.845351  0.869180
+2026-11-09 15:41:36,498 | INFO | Models saved under models/<target>/; reports under reports/<target>/.

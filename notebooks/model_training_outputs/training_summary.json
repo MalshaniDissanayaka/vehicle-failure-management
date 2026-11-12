@@ -1,0 +1,42 @@
+{
+  "target": "condition",
+  "features": [
+    "engine_coolant_temperature",
+    "oil_pressure_kpa",
+    "engine_rpm",
+    "vehicle_speed",
+    "throttle_position",
+    "engine_load"
+  ],
+  "labels": [
+    "normal",
+    "warning",
+    "critical"
+  ],
+  "train_rows": 40000,
+  "test_rows": 10000,
+  "train_sequences": 400,
+  "test_sequences": 100,
+  "sequence_overlap": 0,
+  "metrics": [
+    {
+      "model": "random_forest",
+      "accuracy": 0.9998,
+      "balanced_accuracy": 0.999746931376336,
+      "macro_precision": 0.9995798574965016,
+      "macro_recall": 0.999746931376336,
+      "macro_f1": 0.9996632557735231,
+      "macro_roc_auc_ovr": 0.9999999230023229
+    },
+    {
+      "model": "xgboost",
+      "accuracy": 0.9969,
+      "balanced_accuracy": 0.9918358505999821,
+      "macro_precision": 0.9913485220195257,
+      "macro_recall": 0.9918358505999821,
+      "macro_f1": 0.9915912498376152,
+      "macro_roc_auc_ovr": 0.9999709542853946
+    }
+  ],
+  "interpretation_warning": "Synthetic-data performance only; not evidence of real-world Toyota Aqua diagnostic accuracy."
+}

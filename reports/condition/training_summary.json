@@ -1,0 +1,92 @@
+{
+  "target": "condition",
+  "features": [
+    "engine_coolant_temperature",
+    "oil_pressure_kpa",
+    "engine_rpm",
+    "vehicle_speed",
+    "throttle_position",
+    "engine_load"
+  ],
+  "classes": [
+    "critical",
+    "normal",
+    "warning"
+  ],
+  "split": {
+    "train_rows": 40000,
+    "test_rows": 10000,
+    "train_sequences": 400,
+    "test_sequences": 100,
+    "sequence_overlap": 0,
+    "test_size": 0.2,
+    "random_state": 42
+  },
+  "metrics": [
+    {
+      "target": "condition",
+      "model": "random_forest",
+      "accuracy": 0.9998,
+      "balanced_accuracy": 0.999746931376336,
+      "macro_precision": 0.9995798574965016,
+      "macro_recall": 0.999746931376336,
+      "macro_f1": 0.9996632557735231,
+      "macro_roc_auc_ovr": 0.9999998995816876,
+      "train_rows": 40000,
+      "test_rows": 10000,
+      "train_sequences": 400,
+      "test_sequences": 100,
+      "sequence_overlap": 0,
+      "features": [
+        "engine_coolant_temperature",
+        "oil_pressure_kpa",
+        "engine_rpm",
+        "vehicle_speed",
+        "throttle_position",
+        "engine_load"
+      ],
+      "classes": [
+        "critical",
+        "normal",
+        "warning"
+      ],
+      "data_type": "synthetic",
+      "interpretation_warning": "Synthetic-data evaluation only; not evidence of real-world diagnostic accuracy."
+    },
+    {
+      "target": "condition",
+      "model": "xgboost",
+      "accuracy": 0.997,
+      "balanced_accuracy": 0.9920445752921131,
+      "macro_precision": 0.9917210220764033,
+      "macro_recall": 0.9920445752921131,
+      "macro_f1": 0.9918811928872951,
+      "macro_roc_auc_ovr": 0.9999715227404348,
+      "train_rows": 40000,
+      "test_rows": 10000,
+      "train_sequences": 400,
+      "test_sequences": 100,
+      "sequence_overlap": 0,
+      "features": [
+        "engine_coolant_temperature",
+        "oil_pressure_kpa",
+        "engine_rpm",
+        "vehicle_speed",
+        "throttle_position",
+        "engine_load"
+      ],
+      "classes": [
+        "critical",
+        "normal",
+        "warning"
+      ],
+      "data_type": "synthetic",
+      "interpretation_warning": "Synthetic-data evaluation only; not evidence of real-world diagnostic accuracy."
+    }
+  ],
+  "limitations": [
+    "Dataset is synthetic.",
+    "Labels follow documented simulation rules.",
+    "Results do not establish real-world Toyota Aqua diagnostic accuracy."
+  ]
+}

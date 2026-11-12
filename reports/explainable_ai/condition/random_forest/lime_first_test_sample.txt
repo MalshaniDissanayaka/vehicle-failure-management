@@ -1,0 +1,12 @@
+Target: condition
+Model: random_forest
+Explained sample index in test split: 0
+Predicted class: normal
+
+Local feature contributions:
+engine_coolant_temperature <= 75.40: 0.121230
+oil_pressure_kpa > 154.63: 0.083037
+2.62 < throttle_position <= 17.74: 0.054639
+vehicle_speed <= 0.00: -0.030607
+1255.58 < engine_rpm <= 1732.10: 0.007091
+engine_load <= 19.67: 0.001299

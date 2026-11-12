@@ -1,0 +1,12 @@
+Target: fault_type
+Model: xgboost
+Explained sample index in test split: 0
+Predicted class: normal
+
+Local feature contributions:
+engine_coolant_temperature <= 75.40: 0.280207
+oil_pressure_kpa > 154.63: 0.070798
+vehicle_speed <= 0.00: -0.068979
+1255.58 < engine_rpm <= 1732.10: -0.036026
+engine_load <= 19.67: -0.027328
+2.62 < throttle_position <= 17.74: -0.005452

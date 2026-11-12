@@ -1,0 +1,7 @@
+feature,importance
+engine_coolant_temperature,0.32487795
+throttle_position,0.22815906
+oil_pressure_kpa,0.2217872
+engine_rpm,0.12400355
+vehicle_speed,0.09759155
+engine_load,0.0035807374
