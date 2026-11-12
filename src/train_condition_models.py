@@ -11,11 +11,11 @@ from sklearn.metrics import (accuracy_score, balanced_accuracy_score, precision_
                              classification_report, confusion_matrix, roc_auc_score)
 from xgboost import XGBClassifier
 
-BASE = Path(__file__).resolve().parent
-TRAIN_PATH = BASE / 'train_condition.csv'
-TEST_PATH = BASE / 'test_condition.csv'
-OUT = BASE / 'model_training_outputs'
-OUT.mkdir(exist_ok=True)
+BASE = Path(__file__).resolve().parents[1]
+TRAIN_PATH = BASE / 'data' / 'processed' / 'train_condition.csv'
+TEST_PATH = BASE / 'data' / 'processed' / 'test_condition.csv'
+OUT = BASE / 'artifacts' / 'condition_model_training_20261112'
+OUT.mkdir(parents=True, exist_ok=True)
 FEATURES = ['engine_coolant_temperature','oil_pressure_kpa','engine_rpm','vehicle_speed','throttle_position','engine_load']
 TARGET = 'condition'
 GROUP = 'sequence_id'
